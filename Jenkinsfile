@@ -32,7 +32,7 @@ pipeline {
         stage('Package') {
             steps {
                 sh 'mkdir -p dist'
-                sh 'tar -czf dist/app.tar.gz app tests'
+                sh 'tar -czf dist/${APP_NAME}-${BUILD_NUMBER}.tar.gz app tests'
                 archiveArtifacts artifacts: 'dist/*.tar.gz', fingerprint: true
             }
         }
