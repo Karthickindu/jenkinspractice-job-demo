@@ -19,6 +19,7 @@ pipeline {
             steps {
                 sh 'mkdir -p dist'
                 sh 'tar -czf dist/app.tar.gz app tests'
+                archiveArtifacts artifacts: 'dist/*.tar.gz', fingerprint: true
             }
         }
     }
