@@ -8,6 +8,14 @@ pipeline {
     }
 
     stages {
+        stage('Environment Info') {
+            steps {
+                sh 'whoami'
+                sh 'hostname'
+                sh 'pwd'
+                sh 'echo "Build Number: $BUILD_NUMBER"'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'echo "Building $APP_NAME in $APP_ENV environment"'
